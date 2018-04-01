@@ -10,6 +10,8 @@ import UIKit
 import SwiftyJSON
 
 class ViewController: UIViewController {
+    
+    let roollHeight:CGFloat = 30
 
 //    var noticeListArray: Array<Any>?
     var noticeListArrayName: Array<String> = []
@@ -17,10 +19,13 @@ class ViewController: UIViewController {
 
     var noticeView0: WYRollingNoticeView?
 
-    @IBOutlet weak var image1: UIImageView!
-    @IBOutlet weak var image2: UIImageView!
-    @IBOutlet weak var image3: UIImageView!
-    @IBOutlet weak var image4: UIImageView!
+    
+    var image1: UIImageView!
+    var image2: UIImageView!
+    var image3: UIImageView!
+    var image4: UIImageView!
+    
+    
 
     private let image = ["http://is1.mzstatic.com/image/thumb/Purple128/v4/58/1a/f7/581af7b3-7f11-0a41-2bf1-7c7af18bec02/source/175x175bb.jpg",
                          "http://is1.mzstatic.com/image/thumb/Purple118/v4/68/cf/ae/68cfaee2-0840-04fc-2beb-591183b2bc7f/source/175x175bb.jpg",
@@ -30,12 +35,35 @@ class ViewController: UIViewController {
                             "http://www.youku.com/",
                             "http://www.iqiyi.com/",
                             "https://www.mgtv.com/"]
+    
+    lazy var imageStaffView:UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 64 + 5, width: UIScreen.main.bounds.width, height: imageW))
+        view.backgroundColor = UIColor.white
+        
+        return view
+    }()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        image1 = UIImageView(frame: CGRect(x: imageJG, y: 0, width: imageW, height: imageW))
+        image2 = UIImageView(frame: CGRect(x: imageJG * 3 + imageW, y: 0, width: imageW, height: imageW))
+        image3 = UIImageView(frame: CGRect(x: imageJG * 5 + imageW * 2, y: 0, width: imageW, height: imageW))
+        image4 = UIImageView(frame: CGRect(x: imageJG * 7 + imageW * 3, y: 0, width: imageW, height: imageW))
+        
+        self.view.addSubview(imageStaffView)
+        self.imageStaffView.addSubview(image1)
+        self.imageStaffView.addSubview(image2)
+        self.imageStaffView.addSubview(image3)
+        self.imageStaffView.addSubview(image4)
 
+
+        
         networkRequire() //提示
-        let itemL = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: nil)
+        let itemL = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: nil)
+        itemL.tintColor = UIColor.white
         let itemR=UIBarButtonItem(title: "关于", style: UIBarButtonItemStyle.plain, target: self, action: #selector(itemRBtn))
         itemR.tintColor = UIColor.blue
         self.navigationItem.leftBarButtonItem = itemL
@@ -105,6 +133,12 @@ class ViewController: UIViewController {
                             self.noticeListArrayUrl.append(item["url"].stringValue)
                         }
                         print("\(self.noticeListArrayName)")
+                        
+                        if self.noticeListArrayName.count != 0
+                        {
+                            print("qqqqqq......")
+                            self.imageStaffView.frame.origin.y = self.imageStaffView.frame.origin.y + self.roollHeight
+                        }
                         self.creatRoolingViewWith(arr: self.noticeListArrayName)
                     }
                 }
@@ -153,69 +187,15 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    func fileSizeOfCache()-> Int {
-//
-//        // 取出cache文件夹目录 缓存文件都在这个目录下
-//        let cachePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first
-//        //缓存目录路径
-//        print(cachePath)
-//
-//        // 取出文件夹下所有文件数组
-//        let fileArr = FileManager.default.subpaths(atPath: cachePath!)
-//
-//        //快速枚举出所有文件名 计算文件大小
-//        var size = 0
-//        for file in fileArr! {
-//
-//            // 把文件名拼接到路径中
-//            let path = cachePath?.appending("/\(file)")
-//            // 取出文件属性
-//            let floder = try! FileManager.default.attributesOfItem(atPath: path!)
-//            // 用元组取出文件大小属性
-//            for (abc, bcd) in floder {
-//                // 累加文件大小
-//                if abc == FileAttributeKey.size {
-//                    size += (bcd as AnyObject).integerValue
-//                }
-//            }
-//        }
-//
-//        let mm = size / 1024 / 1024
-//
-//        return mm
-//    }
-//
-//    func clearCache() {
-//
-//        // 取出cache文件夹目录 缓存文件都在这个目录下
-//        let cachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first
-//
-//        // 取出文件夹下所有文件数组
-//        let fileArr = FileManager.default.subpaths(atPath: cachePath!)
-//
-//        // 遍历删除
-//        for file in fileArr! {
-//
-//            let path = cachePath?.appending("/\(file)")
-//            if FileManager.default.fileExists(atPath: path!) {
-//
-//                do {
-//                    try FileManager.default.removeItem(atPath: path!)
-//                } catch {
-//
-//                }
-//            }
-//        }
-//    }
+
 }
 
 extension ViewController {
     
     fileprivate func creatRoolingViewWith(arr: Array<Any>) {
         let w = UIScreen.main.bounds.size.width
-        let h:CGFloat = 30
-        let frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height - h, width: w, height: h)
+        
+        let frame = CGRect.init(x: 0, y: 64, width: w, height: roollHeight)
 
         let noticeView = WYRollingNoticeView.init(frame: frame)
         noticeView.dataSource = self

@@ -123,8 +123,8 @@ class ThirdViewController: UIViewController,WKNavigationDelegate,WKUIDelegate {
         progressView.setProgress(0.0, animated: false)
         
         switch self.parseName {
-//        case "baiyug":
-//            continue
+        case "baiyug":
+            print("baiyug")
 //            webView.evaluateJavaScript("document.getElementsByTagName('style')[0].innerHTML;") { (any, error) in
 //                self.str1 = self.getID(str: any as! String)
 //                print("baiyug\(String(describing: self.str1))???didFinish\n")

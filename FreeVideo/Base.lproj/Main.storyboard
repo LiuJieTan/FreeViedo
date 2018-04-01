@@ -17,85 +17,14 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="GdK-Jl-wtT">
-                                <rect key="frame" x="10" y="77" width="389" height="75"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tVH-OS-Lkx">
-                                        <rect key="frame" x="0.0" y="0.0" width="78.666666666666671" height="75"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="75" id="Vc0-c7-Qlp"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HMr-GO-rNz">
-                                        <rect key="frame" x="103.66666666666669" y="0.0" width="78.333333333333314" height="75"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5ur-Hn-2M7">
-                                        <rect key="frame" x="207" y="0.0" width="78.666666666666686" height="75"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wZM-AG-Eiw" userLabel="image4">
-                                        <rect key="frame" x="310.66666666666669" y="0.0" width="78.333333333333314" height="75"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="5ur-Hn-2M7" firstAttribute="height" secondItem="tVH-OS-Lkx" secondAttribute="height" id="4XE-ue-kxK"/>
-                                    <constraint firstItem="wZM-AG-Eiw" firstAttribute="width" secondItem="5ur-Hn-2M7" secondAttribute="width" id="78A-8E-bcN"/>
-                                    <constraint firstItem="5ur-Hn-2M7" firstAttribute="width" secondItem="HMr-GO-rNz" secondAttribute="width" id="N8u-tf-ktT"/>
-                                    <constraint firstItem="wZM-AG-Eiw" firstAttribute="height" secondItem="GdK-Jl-wtT" secondAttribute="height" id="NTs-Js-y6E"/>
-                                    <constraint firstAttribute="height" constant="75" id="Vhs-Mh-hNZ"/>
-                                    <constraint firstItem="HMr-GO-rNz" firstAttribute="height" secondItem="wZM-AG-Eiw" secondAttribute="height" id="a0B-hw-UGH"/>
-                                    <constraint firstItem="5ur-Hn-2M7" firstAttribute="width" secondItem="tVH-OS-Lkx" secondAttribute="width" id="pRm-40-X5l"/>
-                                    <constraint firstItem="HMr-GO-rNz" firstAttribute="height" secondItem="tVH-OS-Lkx" secondAttribute="height" id="zML-a8-iLl"/>
-                                </constraints>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="腾讯" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBD-S6-jYM">
-                                <rect key="frame" x="23" y="158" width="35" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="优酷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jV-GZ-1U7">
-                                <rect key="frame" x="137" y="158" width="35" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="爱奇艺" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7m-bF-RAJ">
-                                <rect key="frame" x="230" y="158" width="52" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="芒果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYc-qy-ALy">
-                                <rect key="frame" x="339" y="158" width="35" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="GdK-Jl-wtT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="13" id="C93-UA-eBb"/>
-                            <constraint firstItem="GdK-Jl-wtT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="EBO-Zv-Mb0"/>
-                            <constraint firstItem="GdK-Jl-wtT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-15" id="cLx-YD-U4L"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="首页" id="CSK-Vs-PE1"/>
-                    <connections>
-                        <outlet property="image1" destination="tVH-OS-Lkx" id="Szj-bY-EHQ"/>
-                        <outlet property="image2" destination="HMr-GO-rNz" id="Iqz-qh-lYg"/>
-                        <outlet property="image3" destination="5ur-Hn-2M7" id="HBW-Em-RuU"/>
-                        <outlet property="image4" destination="wZM-AG-Eiw" id="8FE-3H-5R9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348" y="-156"/>
+            <point key="canvasLocation" x="347.82608695652175" y="-156.52173913043478"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="gfY-ub-6Vy">

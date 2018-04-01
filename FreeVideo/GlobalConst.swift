@@ -15,6 +15,9 @@ import UIKit
 var parseListNameStr:Array<JSON> = []
 var parseList1:[String] = []
 
+let imageW:CGFloat = 75
+let imageJG = (UIScreen.main.bounds.width - CGFloat(4 * imageW)) / 8
+
 func fileSizeOfCache()-> Int {
     
     // 取出cache文件夹目录 缓存文件都在这个目录下
