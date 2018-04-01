@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class SecondViewController: UIViewController,WKNavigationDelegate,WKUIDelegate {
+class SecondViewController: UIViewController,WKNavigationDelegate,WKUIDelegate, UIScrollViewDelegate {
     private var webView = WKWebView()
     private var progressView = UIProgressView()
     
@@ -81,8 +81,18 @@ class SecondViewController: UIViewController,WKNavigationDelegate,WKUIDelegate {
                 webView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: UIScreen.main.bounds.height - (statusH+navigationH)),configuration:config)
             webView.allowsBackForwardNavigationGestures = true      //允许侧滑返回到上一个界面(注意书写位置)
             
+            //手势冲突解决方案
+            
+            if(webView.canGoBack){
+                self.navigationController?.interactivePopGestureRecognizer?.require(toFail: webView.scrollView.panGestureRecognizer)
+            }else
+            {
+               
+            }
+            
             webView.navigationDelegate = self
             webView.uiDelegate = self;
+            webView.scrollView.delegate = self
             
             self.view.addSubview(webView)
             self.view.addSubview(progressView)
@@ -113,6 +123,10 @@ class SecondViewController: UIViewController,WKNavigationDelegate,WKUIDelegate {
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         self.psView.cancelParse.addTarget(self, action: #selector(psViewcancel), for: .touchUpInside)
         self.psView.confirmParse.addTarget(self, action: #selector(psViewconfirm), for: .touchUpInside)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("正在滑动。。。。。。")
     }
     
     
